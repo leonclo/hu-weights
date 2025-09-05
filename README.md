@@ -4,14 +4,14 @@
 * still need to check input for weighting arguments (should be easier to test with command line changes for weights e.g. )
 
 ## loop through edge lengths >
-** store in tovar slice 1 : edge length in window
-** store in tovar slice 2: percent of edge lengths in window (inside/total edge length) 
-** store in tovar slice 3: percent size increase from edge weights
+* store in tovar slice 1 : edge length in window
+* store in tovar slice 2: percent of edge lengths in window (inside/total edge length) 
+* store in tovar slice 3: percent size increase from edge weights
 
 ## calculate_edge_weights returns edge_length:
-** store in edge_weights slice 1: edge length
-** store in edge_weights slice 2: edge weight
-** store in edge_weights slice 3: edge length/weighted edge
+* store in edge_weights slice 1: edge length
+* store in edge_weights slice 2: edge weight
+* store in edge_weights slice 3: edge length/weighted edge
 
 ## density
 * calculate weighted_edge_density using edge_density_function with weighted edges (uselen_w line 491)
