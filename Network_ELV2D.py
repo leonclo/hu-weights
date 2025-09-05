@@ -347,11 +347,15 @@ simtag = str(sys.argv[3]) #Specific identifying name for particular simulation
 ctype = str(sys.argv[4]) #Configuration type
 ntype = str(sys.argv[5]) #Tessellation type (C,V,G,D)
 weight_type = str(sys.argv[6]) if len(sys.argv) > 6 else 'uniform' #beam characteristics for function calls
+params_str = str(sys.argv[7]) if len(sys.argv) > 7 else None
 '''If loading a configuration, the path to the file is loaded here
 Will read in a .txt file whose lines are the global coordinates of each point in the configuration '''
+
+
+
 fn = 0
 if ctype == "load":
-    fn = str(sys.argv[6])
+    fn = str(sys.argv[8])
 if ctype == 'poi': flatlat = np.random.rand(N**2,2)*N #Generating/loading point pattern
 elif ctype == 'load':  
     flatlat = np.zeros([N**2,2])
@@ -417,7 +421,11 @@ if weight_type != 'uniform':
         'amplitude': 1.5,
         # Other parameters
         'epsilon': 1e-6
-    }
+        }
+    if params_str is not None:
+        for param in params_str.split(','):
+            key, value = param.split('=')
+            length_params[key] = float(value)
     
     edge_weights = calculate_edge_weights(tURL, using, weight_type, **length_params)
 else: pass
