@@ -1,0 +1,10 @@
+Database network_results_weights.db not found!
+Looking for alternative database names...
+Found database: ../network_results_weights.db
+Using database: ../network_results_weights.db
+Exporting to directory: database_exports
+
+1. Exporting summary statistics...
+
+Error during export: 'NetworkResultsDB' object has no attribute 'export_summary_statistics'
+This might happen if the database is empty or corrupted.
