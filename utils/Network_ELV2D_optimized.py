@@ -309,37 +309,116 @@ def calculate_edge_weights(tURL, edges, weight_type='uniform', **kwargs):
     return weights
 # Calculate edge weights based on various schemes (uniform, length-based, centrality-based, etc.) 
 def edge_density(N, tURL, using, uselen):
-    ###Just going to compute the total path length in the fundamental cell and divide by the volume
-    # would need some different scaling for edge density for weights? how about sinusoidal?
+    """Compute total path length in fundamental cell divided by area"""
     runningtotal = 0
     L = N
     squarepoints = np.array([[0,0],[L,0],[L,L],[0,L]])
-    ed = 0
-    for edge in using:
-        if tURL[edge[0]][0] < L and tURL[edge[0]][0] > 0 and tURL[edge[0]][1] < L and tURL[edge[0]][1] > 0:
-            #So we know point 1 is in there
-            if tURL[edge[1]][0] < L and tURL[edge[1]][0] > 0 and tURL[edge[1]][1] < L and tURL[edge[1]][1] > 0:
-                runningtotal += uselen[ed]
-            else:
-                runningtotal += np.linalg.norm(tURL[edge[0]]-square_line_intersection(squarepoints, tURL[edge]))
-        elif tURL[edge[1]][0] < L and tURL[edge[1]][0] > 0 and tURL[edge[1]][1] < L and tURL[edge[1]][1] > 0:
-            runningtotal += np.linalg.norm(tURL[edge[1]]-square_line_intersection(squarepoints, tURL[edge]))
 
-        ed += 1
-    return(runningtotal/L**2)
+    for ed, edge in enumerate(using):
+        p1 = tURL[edge[0]]
+        p2 = tURL[edge[1]]
+
+        # Check if points are inside fundamental cell [0,L] x [0,L]
+        p1_inside = (0 <= p1[0] <= L) and (0 <= p1[1] <= L)
+        p2_inside = (0 <= p2[0] <= L) and (0 <= p2[1] <= L)
+
+        if p1_inside and p2_inside:
+            # Both inside - count full edge length
+            runningtotal += uselen[ed]
+        elif p1_inside and not p2_inside:
+            # Only p1 inside - count from p1 to boundary intersection
+            intersection_points = square_line_intersection(squarepoints, [p1, p2])
+            if intersection_points:
+                # Take closest intersection point
+                distances = [np.linalg.norm(p1 - np.array(pt)) for pt in intersection_points]
+                min_dist = min(distances)
+                runningtotal += min_dist
+        elif not p1_inside and p2_inside:
+            # Only p2 inside - count from p2 to boundary intersection
+            intersection_points = square_line_intersection(squarepoints, [p1, p2])
+            if intersection_points:
+                distances = [np.linalg.norm(p2 - np.array(pt)) for pt in intersection_points]
+                min_dist = min(distances)
+                runningtotal += min_dist
+        # If neither inside, contribute 0 (implicit)
+
+    return runningtotal / (L**2)
+
+# def edge_density(N, tURL, using, uselen):
+#     ###Just going to compute the total path length in the fundamental cell and divide by the volume
+#     # would need some different scaling for edge density for weights? how about sinusoidal?
+#     runningtotal = 0
+#     L = N
+#     squarepoints = np.array([[0,0],[L,0],[L,L],[0,L]])
+#     ed = 0
+#     for edge in using: #BOUNDARY CONDITIONS?
+#         if tURL[edge[0]][0] < L and tURL[edge[0]][0] > 0 and tURL[edge[0]][1] < L and tURL[edge[0]][1] > 0:
+#             #So we know point 1 is in there
+#             if tURL[edge[1]][0] < L and tURL[edge[1]][0] > 0 and tURL[edge[1]][1] < L and tURL[edge[1]][1] > 0:
+#                 runningtotal += uselen[ed]
+#             else:
+#                 runningtotal += np.linalg.norm(tURL[edge[0]]-square_line_intersection(squarepoints, tURL[edge]))
+#         elif tURL[edge[1]][0] < L and tURL[edge[1]][0] > 0 and tURL[edge[1]][1] < L and tURL[edge[1]][1] > 0:
+#             runningtotal += np.linalg.norm(tURL[edge[1]]-square_line_intersection(squarepoints, tURL[edge]))
+
+#         ed += 1
+#     return(runningtotal/L**2)
 # Calculate edge density (total edge length per unit area) within fundamental cell
-def square_line_intersection(square_points, line_points):
-    """Finds the intersection points between a square and a line segment"""
-    intersection_points = []
 
-    for i in range(4):
-        p1 = square_points[i]
-        p2 = square_points[(i + 1) % 4]  # Wrap around to the first point
-        intersection = intersect(p1, p2, line_points[0], line_points[1])
-        if intersection:
-            intersection_points.append(intersection)
+def square_line_intersection_robust(square_bounds, line_seg):
+      """Find intersection of line segment with square boundary"""
+      p1, p2 = line_seg
+      xmin, ymin = 0, 0
+      xmax, ymax = square_bounds[2]  # [L, L]
 
-    return intersection_points
+      intersections = []
+
+      # Check intersection with each boundary
+      # Left boundary (x = 0)
+      if p1[0] != p2[0]:
+          t = -p1[0] / (p2[0] - p1[0])
+          if 0 <= t <= 1:
+              y = p1[1] + t * (p2[1] - p1[1])
+              if ymin <= y <= ymax:
+                  intersections.append([0, y])
+
+      # Right boundary (x = L)
+      if p1[0] != p2[0]:
+          t = (xmax - p1[0]) / (p2[0] - p1[0])
+          if 0 <= t <= 1:
+              y = p1[1] + t * (p2[1] - p1[1])
+              if ymin <= y <= ymax:
+                  intersections.append([xmax, y])
+
+      # Bottom boundary (y = 0)
+      if p1[1] != p2[1]:
+          t = -p1[1] / (p2[1] - p1[1])
+          if 0 <= t <= 1:
+              x = p1[0] + t * (p2[0] - p1[0])
+              if xmin <= x <= xmax:
+                  intersections.append([x, 0])
+
+      # Top boundary (y = L)
+      if p1[1] != p2[1]:
+          t = (ymax - p1[1]) / (p2[1] - p1[1])
+          if 0 <= t <= 1:
+              x = p1[0] + t * (p2[0] - p1[0])
+              if xmin <= x <= xmax:
+                  intersections.append([x, ymax])
+
+      return intersections
+# def square_line_intersection(square_points, line_points):
+#     """Finds the intersection points between a square and a line segment"""
+#     intersection_points = []
+
+#     for i in range(4):
+#         p1 = square_points[i]
+#         p2 = square_points[(i + 1) % 4]  # Wrap around to the first point
+#         intersection = intersect(p1, p2, line_points[0], line_points[1])
+#         if intersection:
+#             intersection_points.append(intersection)
+
+#     return intersection_points
 # Find intersection points between square boundary and line segment
 def intersect(p1, p2, p3, p4):
     """Checks if line segment p1-p2 intersects with line segment p3-p4"""
@@ -543,8 +622,8 @@ def plot_elv_variance(Rs, tovar, edge_density, weighted_edge_density, N, ctype, 
     # Calculate variance across windows for each radius
     rho_l_w = weighted_edge_density
     rho_l_n = edge_density_n
-    dimensionless_R_w = Rs * rho_l_w  # Fixed: changed from ^0.5 to ^1.0 power
-    dimensionless_R = Rs * rho_l_n    # Fixed: changed from ^0.5 to ^1.0 power
+    dimensionless_R_w = Rs * rho_l_w^(1/2)
+    dimensionless_R = Rs * rho_l_n^(1/2)
     plt.figure(figsize=(8, 6))
     plt.grid(True, alpha=0.3)
     plt.xlabel(r'$R \rho_\ell^{1/2}$', fontsize=12)
