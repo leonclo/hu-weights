@@ -365,7 +365,7 @@ def edge_density(N, tURL, using, uselen):
 #     return(runningtotal/L**2)
 # Calculate edge density (total edge length per unit area) within fundamental cell
 
-def square_line_intersection_robust(square_bounds, line_seg):
+def square_line_intersection(square_bounds, line_seg):
       """Find intersection of line segment with square boundary"""
       p1, p2 = line_seg
       xmin, ymin = 0, 0
