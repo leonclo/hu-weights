@@ -153,16 +153,16 @@ def create_summary_plot(db_path="network_results_weights.db"):
     
     # Create figure with subplots for each config type
     fig, axes = plt.subplots(1, 3, figsize=(18, 6))
-    config_types = ['URL', 'poi', 'URL']  # URL twice for a=0.1 and a=0.0
-    titles = ['URL (a=0.1) - Breaking Hyperuniformity', 
-              'Poisson - Creating Hyperuniformity', 
-              'Square Lattice (a=0.0) - Hyperuniform Baseline']
+    config_types = ['URL', 'poi', 'URL']  # URL twice for a=0.5 and a=0.0
+    titles = ['URL', 
+              'Poisson', 
+              'A=0 URL']
     
     for idx, (ax, config_type, title) in enumerate(zip(axes, config_types, titles)):
         
         # Filter configs
-        if idx == 0:  # URL a=0.1
-            subset = configs[(configs['config_type'] == 'URL') & (configs['a'] == 0.1)]
+        if idx == 0:  # URL a=0.5
+            subset = configs[(configs['config_type'] == 'URL') & (configs['a'] == 0.5)]
         elif idx == 1:  # Poisson
             subset = configs[configs['config_type'] == 'poi']
         else:  # Square lattice a=0.0
