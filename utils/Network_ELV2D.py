@@ -341,7 +341,7 @@ def plot_elv_variance(Rs, tovar, edge_density, weighted_edge_density, N, ctype, 
     
     if tovar.shape[0] >= 3:
         unweighted_var = np.var(tovar[0], axis=0)
-        weighted_var = np.var(tovar[0] * tovar[2], axis=0)
+        weighted_var = np.var(tovar[2], axis=0)
         
         weight_detail = ""
         if weight_params:
@@ -477,7 +477,7 @@ if __name__ == "__main__":
     tovar = np.zeros([3, Nwind, reso])
     
     if edge_weights is not None:
-        for i in range(Nwind):
+        for i in range(Nwind): #update to keep taack of percent edge weight * percent in window per edge in window not per window
             distto = np.zeros(using.shape[0])
             verttowind = np.zeros(tURL.shape[0])
             for j in range(using.shape[0]):
@@ -489,9 +489,10 @@ if __name__ == "__main__":
                 for k in etc:
                     tr = eclen(wind[i], Rs[j], tURL[using[k,0]], verttowind[using[k,0]], tURL[using[k,1]], verttowind[using[k,1]], uselen[k])
                     percent_inside = tr / uselen[k]
+                    weighted_contribution = percent_inside * edge_weights[k,2] * uselen[k]
                     tovar[0,i,j] += tr
                     tovar[1,i,j] += percent_inside
-                    tovar[2,i,j] += edge_weights[k,2]
+                    tovar[2,i,j] += weighted_contribution
     else:
         for i in range(Nwind):
             distto = np.zeros(using.shape[0])
@@ -554,7 +555,7 @@ if __name__ == "__main__":
             dimension=2, weight_type=weight_type, weight_parameters=weight_params,
             point_pattern=flatlat
         )
-        
+        #variance_matrix should store the per edge data for percent inside * percent weighted
         db.save_elv_results(
             config_id=config_id,
             window_radii=Rs,

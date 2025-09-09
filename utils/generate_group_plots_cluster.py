@@ -159,7 +159,7 @@ class ClusterGroupPlotter:
             density = 1.0
         return density
     
-    def _get_elv_curve(self, config_id):
+    def _get_elv_curve(self, config_id, use_weighted=False):
         """Extract ELV curve data for a configuration"""
         if config_id not in self.elv_data:
             return None, None
@@ -171,15 +171,19 @@ class ClusterGroupPlotter:
             window_radii = elv_result[0]  # Already unpickled by get_elv_results
             variance_matrix = elv_result[1]  # Already unpickled by get_elv_results
             
-            # Extract weighted ELV curve 
+            # Extract ELV curve 
             # variance_matrix from Network_ELV2D.py has shape [3, Nwind, reso]
             # - tovar[0,i,j] = total edge length in window i at radius j
             # - tovar[1,i,j] = percent inside 
-            # - tovar[2,i,j] = edge weights
+            # - tovar[2,i,j] = weighted edge contributions
             
             if variance_matrix.ndim == 3:
-                # Take variance across windows (axis 1) for total edge length (slice 0)
-                elv_curve = np.var(variance_matrix[0, :, :], axis=0)  # Variance over windows
+                if use_weighted and variance_matrix.shape[0] >= 3:
+                    # Use pre-weighted contributions (slice 2)
+                    elv_curve = np.var(variance_matrix[2, :, :], axis=0)  # Variance over windows
+                else:
+                    # Use unweighted edge lengths (slice 0)
+                    elv_curve = np.var(variance_matrix[0, :, :], axis=0)  # Variance over windows
             elif variance_matrix.ndim == 2:
                 # Legacy format: take the last row
                 elv_curve = variance_matrix[-1, :] if variance_matrix.shape[0] > 1 else variance_matrix[0, :]
@@ -246,7 +250,8 @@ class ClusterGroupPlotter:
                     colors = plt.cm.tab10(np.linspace(0, 1, len(subset)))
                 
                 for idx, (_, config) in enumerate(subset.iterrows()):
-                    radii, elv = self._get_elv_curve(config['id'])
+                    use_weighted = config['weight_type'] != 'uniform'
+                radii, elv = self._get_elv_curve(config['id'], use_weighted=use_weighted)
                     if radii is not None and elv is not None:
                         # Calculate density for x-axis
                         density = self._get_density(config)
@@ -289,7 +294,8 @@ class ClusterGroupPlotter:
                 colors = plt.cm.Set1(np.linspace(0, 1, len(group)))
             
             for idx, (_, config) in enumerate(group.iterrows()):
-                radii, elv = self._get_elv_curve(config['id'])
+                use_weighted = config['weight_type'] != 'uniform'
+                radii, elv = self._get_elv_curve(config['id'], use_weighted=use_weighted)
                 if radii is not None and elv is not None:
                     density = self._get_density(config)
                     r_rho = radii * density
@@ -332,7 +338,8 @@ class ClusterGroupPlotter:
                 
                 max_variances = []
                 for _, config in subset.iterrows():
-                    radii, elv = self._get_elv_curve(config['id'])
+                    use_weighted = config['weight_type'] != 'uniform'
+                radii, elv = self._get_elv_curve(config['id'], use_weighted=use_weighted)
                     if radii is not None and elv is not None:
                         max_variances.append(np.max(elv))
                 
@@ -384,7 +391,8 @@ class ClusterGroupPlotter:
                     
                     max_variances = []
                     for _, config in subset.iterrows():
-                        radii, elv = self._get_elv_curve(config['id'])
+                        use_weighted = config['weight_type'] != 'uniform'
+                radii, elv = self._get_elv_curve(config['id'], use_weighted=use_weighted)
                         if radii is not None and elv is not None:
                             max_variances.append(np.max(elv))
                     
@@ -441,7 +449,8 @@ class ClusterGroupPlotter:
         labels = []
         
         for _, config in self.configs.iterrows():
-            radii, elv = self._get_elv_curve(config['id'])
+            use_weighted = config['weight_type'] != 'uniform'
+            radii, elv = self._get_elv_curve(config['id'], use_weighted=use_weighted)
             if radii is not None and elv is not None:
                 # Interpolate to common grid for comparison
                 log_radii = np.log10(radii)
@@ -507,7 +516,8 @@ class ClusterGroupPlotter:
             col = idx % ncols
             ax = axes[row][col] if nrows > 1 else axes[col]
             
-            radii, elv = self._get_elv_curve(config['id'])
+            use_weighted = config['weight_type'] != 'uniform'
+            radii, elv = self._get_elv_curve(config['id'], use_weighted=use_weighted)
             if radii is not None and elv is not None:
                 density = self._get_density(config)
                 r_rho = radii * density

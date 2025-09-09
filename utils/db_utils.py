@@ -258,8 +258,8 @@ class NetworkResultsDB:
         for i, config_id in enumerate(config_ids):
             Rs, variance_matrix, _, _ = self.get_elv_results(config_id)
             if Rs is not None:
-                # Calculate variance across windows for each radius
-                variances = np.var(variance_matrix, axis=0)
+                # Calculate variance across windows for each radius (unweighted)
+                variances = np.var(variance_matrix[0] if variance_matrix.ndim == 3 else variance_matrix, axis=0)
                 ax.loglog(Rs, variances, label=labels[i])
         
         ax.set_xlabel('Window Radius R')
@@ -308,8 +308,8 @@ class NetworkResultsDB:
                 # Calculate R * ρₗ^((d-1)/d) as per the paper
                 x_axis = Rs * (rho_l ** ((d-1)/d))
                 
-                # Calculate variance across windows for each radius
-                variances = np.var(variance_matrix, axis=0)
+                # Calculate variance across windows for each radius (unweighted)
+                variances = np.var(variance_matrix[0] if variance_matrix.ndim == 3 else variance_matrix, axis=0)
                 
                 ax.loglog(x_axis, variances, label=f"{labels[i]} (d={d})")
         
@@ -365,7 +365,7 @@ class NetworkResultsDB:
                     
                     # Calculate R * ρₗ^((d-1)/d)
                     x_axis = Rs * (rho_l ** ((d-1)/d))
-                    variances = np.var(variance_matrix, axis=0)
+                    variances = np.var(variance_matrix[0] if variance_matrix.ndim == 3 else variance_matrix, axis=0)
                     
                     tessellation_data[config['tess_type']].append({
                         'x_axis': x_axis,
@@ -499,8 +499,8 @@ class NetworkResultsDB:
             np.save(os.path.join(output_dir, f"{base_name}_Rs.npy"), Rs)
             np.save(os.path.join(output_dir, f"{base_name}_variance_matrix.npy"), variance_matrix)
             
-            # Calculate and save variance
-            variances = np.var(variance_matrix, axis=0)
+            # Calculate and save variance (unweighted)
+            variances = np.var(variance_matrix[0] if variance_matrix.ndim == 3 else variance_matrix, axis=0)
             elv_data = np.column_stack([Rs, variances])
             np.savetxt(os.path.join(output_dir, f"{base_name}_elv_variance.txt"), 
                       elv_data, header="Window_Radius Edge_Length_Variance")
@@ -546,7 +546,7 @@ class NetworkResultsDB:
             # Export ELV results if available
             Rs, variance_matrix, num_windows, resolution = self.get_elv_results(config_id)
             if Rs is not None:
-                variances = np.var(variance_matrix, axis=0)
+                variances = np.var(variance_matrix[0] if variance_matrix.ndim == 3 else variance_matrix, axis=0)
                 elv_data_list.append({
                     'config_id': config_id,
                     'Rs': Rs,

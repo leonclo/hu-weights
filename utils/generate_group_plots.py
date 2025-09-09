@@ -77,7 +77,7 @@ def create_weight_comparison_plots(db_path="../network_results_weights.db"):
                         
                         if len(variance_matrix.shape) == 3:
                             unweighted_var = np.var(variance_matrix[0], axis=0)
-                            weighted_var = np.var(variance_matrix[0] * variance_matrix[2], axis=0)
+                            weighted_var = np.var(variance_matrix[2], axis=0)
                             all_weighted_variances.append(weighted_var)
                         else:
                             unweighted_var = np.var(variance_matrix, axis=0)
@@ -331,7 +331,7 @@ def create_weight_effect_analysis(db_path="../network_results_weights.db"):
                         
                         if len(variance_matrix.shape) == 3:
                             unweighted_variance = np.var(variance_matrix[0], axis=0)
-                            weighted_variance = np.var(variance_matrix[0] * variance_matrix[2], axis=0)
+                            weighted_variance = np.var(variance_matrix[2], axis=0)
                         else:
                             unweighted_variance = np.var(variance_matrix, axis=0)
                             weighted_variance = unweighted_variance
