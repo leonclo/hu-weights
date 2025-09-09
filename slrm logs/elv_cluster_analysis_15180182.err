@@ -1,0 +1,239 @@
+Traceback (most recent call last):
+  File "/nas/longleaf/home/leonleon/c298/utils/Network_ELV2D.py", line 404, in <module>
+    np.savetxt(f"../outputs/data/ELV_poi_N{N}_{ntype}_set{simtag}_config.txt", flatlat)
+  File "/nas/longleaf/rhel9/apps/python/3.12.2/lib/python3.12/site-packages/numpy/lib/npyio.py", line 1556, in savetxt
+    open(fname, 'wt').close()
+    ^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '../outputs/data/ELV_poi_N200_V_setpoi_uniform_v1_config.txt'
+Traceback (most recent call last):
+  File "/nas/longleaf/home/leonleon/c298/utils/Network_ELV2D.py", line 404, in <module>
+    np.savetxt(f"../outputs/data/ELV_poi_N{N}_{ntype}_set{simtag}_config.txt", flatlat)
+  File "/nas/longleaf/rhel9/apps/python/3.12.2/lib/python3.12/site-packages/numpy/lib/npyio.py", line 1556, in savetxt
+    open(fname, 'wt').close()
+    ^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '../outputs/data/ELV_poi_N200_V_setpoi_power15_v1_config.txt'
+Traceback (most recent call last):
+  File "/nas/longleaf/home/leonleon/c298/utils/Network_ELV2D.py", line 404, in <module>
+    np.savetxt(f"../outputs/data/ELV_poi_N{N}_{ntype}_set{simtag}_config.txt", flatlat)
+  File "/nas/longleaf/rhel9/apps/python/3.12.2/lib/python3.12/site-packages/numpy/lib/npyio.py", line 1556, in savetxt
+    open(fname, 'wt').close()
+    ^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '../outputs/data/ELV_poi_N200_V_setpoi_power20_v1_config.txt'
+Traceback (most recent call last):
+  File "/nas/longleaf/home/leonleon/c298/utils/Network_ELV2D.py", line 404, in <module>
+    np.savetxt(f"../outputs/data/ELV_poi_N{N}_{ntype}_set{simtag}_config.txt", flatlat)
+  File "/nas/longleaf/rhel9/apps/python/3.12.2/lib/python3.12/site-packages/numpy/lib/npyio.py", line 1556, in savetxt
+    open(fname, 'wt').close()
+    ^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '../outputs/data/ELV_poi_N200_V_setpoi_power25_v1_config.txt'
+Traceback (most recent call last):
+  File "/nas/longleaf/home/leonleon/c298/utils/Network_ELV2D.py", line 404, in <module>
+    np.savetxt(f"../outputs/data/ELV_poi_N{N}_{ntype}_set{simtag}_config.txt", flatlat)
+  File "/nas/longleaf/rhel9/apps/python/3.12.2/lib/python3.12/site-packages/numpy/lib/npyio.py", line 1556, in savetxt
+    open(fname, 'wt').close()
+    ^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '../outputs/data/ELV_poi_N200_G_setpoi_uniform_g1_config.txt'
+Traceback (most recent call last):
+  File "/nas/longleaf/home/leonleon/c298/utils/Network_ELV2D.py", line 404, in <module>
+    np.savetxt(f"../outputs/data/ELV_poi_N{N}_{ntype}_set{simtag}_config.txt", flatlat)
+  File "/nas/longleaf/rhel9/apps/python/3.12.2/lib/python3.12/site-packages/numpy/lib/npyio.py", line 1556, in savetxt
+    open(fname, 'wt').close()
+    ^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '../outputs/data/ELV_poi_N200_G_setpoi_power15_g1_config.txt'
+Traceback (most recent call last):
+  File "/nas/longleaf/home/leonleon/c298/utils/Network_ELV2D.py", line 404, in <module>
+    np.savetxt(f"../outputs/data/ELV_poi_N{N}_{ntype}_set{simtag}_config.txt", flatlat)
+  File "/nas/longleaf/rhel9/apps/python/3.12.2/lib/python3.12/site-packages/numpy/lib/npyio.py", line 1556, in savetxt
+    open(fname, 'wt').close()
+    ^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '../outputs/data/ELV_poi_N200_G_setpoi_power20_g1_config.txt'
+Traceback (most recent call last):
+  File "/nas/longleaf/home/leonleon/c298/utils/Network_ELV2D.py", line 404, in <module>
+    np.savetxt(f"../outputs/data/ELV_poi_N{N}_{ntype}_set{simtag}_config.txt", flatlat)
+  File "/nas/longleaf/rhel9/apps/python/3.12.2/lib/python3.12/site-packages/numpy/lib/npyio.py", line 1556, in savetxt
+    open(fname, 'wt').close()
+    ^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '../outputs/data/ELV_poi_N200_G_setpoi_power25_g1_config.txt'
+Traceback (most recent call last):
+  File "/nas/longleaf/home/leonleon/c298/utils/Network_ELV2D.py", line 404, in <module>
+    np.savetxt(f"../outputs/data/ELV_poi_N{N}_{ntype}_set{simtag}_config.txt", flatlat)
+  File "/nas/longleaf/rhel9/apps/python/3.12.2/lib/python3.12/site-packages/numpy/lib/npyio.py", line 1556, in savetxt
+    open(fname, 'wt').close()
+    ^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '../outputs/data/ELV_poi_N200_C_setpoi_uniform_c1_config.txt'
+Traceback (most recent call last):
+  File "/nas/longleaf/home/leonleon/c298/utils/Network_ELV2D.py", line 404, in <module>
+    np.savetxt(f"../outputs/data/ELV_poi_N{N}_{ntype}_set{simtag}_config.txt", flatlat)
+  File "/nas/longleaf/rhel9/apps/python/3.12.2/lib/python3.12/site-packages/numpy/lib/npyio.py", line 1556, in savetxt
+    open(fname, 'wt').close()
+    ^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '../outputs/data/ELV_poi_N200_C_setpoi_power20_c1_config.txt'
+Traceback (most recent call last):
+  File "/nas/longleaf/home/leonleon/c298/utils/Network_ELV2D.py", line 406, in <module>
+    np.savetxt(f"../outputs/data/ELV_URL_a{a}_N{N}_{ntype}_set{simtag}_config.txt", flatlat)
+  File "/nas/longleaf/rhel9/apps/python/3.12.2/lib/python3.12/site-packages/numpy/lib/npyio.py", line 1556, in savetxt
+    open(fname, 'wt').close()
+    ^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '../outputs/data/ELV_URL_a0.5_N300_V_seturl_uniform_v1_config.txt'
+Traceback (most recent call last):
+  File "/nas/longleaf/home/leonleon/c298/utils/Network_ELV2D.py", line 406, in <module>
+    np.savetxt(f"../outputs/data/ELV_URL_a{a}_N{N}_{ntype}_set{simtag}_config.txt", flatlat)
+  File "/nas/longleaf/rhel9/apps/python/3.12.2/lib/python3.12/site-packages/numpy/lib/npyio.py", line 1556, in savetxt
+    open(fname, 'wt').close()
+    ^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '../outputs/data/ELV_URL_a0.5_N300_V_seturl_power15_v1_config.txt'
+Traceback (most recent call last):
+  File "/nas/longleaf/home/leonleon/c298/utils/Network_ELV2D.py", line 406, in <module>
+    np.savetxt(f"../outputs/data/ELV_URL_a{a}_N{N}_{ntype}_set{simtag}_config.txt", flatlat)
+  File "/nas/longleaf/rhel9/apps/python/3.12.2/lib/python3.12/site-packages/numpy/lib/npyio.py", line 1556, in savetxt
+    open(fname, 'wt').close()
+    ^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '../outputs/data/ELV_URL_a0.5_N300_V_seturl_power20_v1_config.txt'
+Traceback (most recent call last):
+  File "/nas/longleaf/home/leonleon/c298/utils/Network_ELV2D.py", line 406, in <module>
+    np.savetxt(f"../outputs/data/ELV_URL_a{a}_N{N}_{ntype}_set{simtag}_config.txt", flatlat)
+  File "/nas/longleaf/rhel9/apps/python/3.12.2/lib/python3.12/site-packages/numpy/lib/npyio.py", line 1556, in savetxt
+    open(fname, 'wt').close()
+    ^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '../outputs/data/ELV_URL_a0.5_N300_V_seturl_power25_v1_config.txt'
+Traceback (most recent call last):
+  File "/nas/longleaf/home/leonleon/c298/utils/Network_ELV2D.py", line 406, in <module>
+    np.savetxt(f"../outputs/data/ELV_URL_a{a}_N{N}_{ntype}_set{simtag}_config.txt", flatlat)
+  File "/nas/longleaf/rhel9/apps/python/3.12.2/lib/python3.12/site-packages/numpy/lib/npyio.py", line 1556, in savetxt
+    open(fname, 'wt').close()
+    ^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '../outputs/data/ELV_URL_a0.5_N300_G_seturl_uniform_g1_config.txt'
+Traceback (most recent call last):
+  File "/nas/longleaf/home/leonleon/c298/utils/Network_ELV2D.py", line 406, in <module>
+    np.savetxt(f"../outputs/data/ELV_URL_a{a}_N{N}_{ntype}_set{simtag}_config.txt", flatlat)
+  File "/nas/longleaf/rhel9/apps/python/3.12.2/lib/python3.12/site-packages/numpy/lib/npyio.py", line 1556, in savetxt
+    open(fname, 'wt').close()
+    ^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '../outputs/data/ELV_URL_a0.5_N300_G_seturl_power15_g1_config.txt'
+Traceback (most recent call last):
+  File "/nas/longleaf/home/leonleon/c298/utils/Network_ELV2D.py", line 406, in <module>
+    np.savetxt(f"../outputs/data/ELV_URL_a{a}_N{N}_{ntype}_set{simtag}_config.txt", flatlat)
+  File "/nas/longleaf/rhel9/apps/python/3.12.2/lib/python3.12/site-packages/numpy/lib/npyio.py", line 1556, in savetxt
+    open(fname, 'wt').close()
+    ^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '../outputs/data/ELV_URL_a0.5_N300_G_seturl_power20_g1_config.txt'
+Traceback (most recent call last):
+  File "/nas/longleaf/home/leonleon/c298/utils/Network_ELV2D.py", line 406, in <module>
+    np.savetxt(f"../outputs/data/ELV_URL_a{a}_N{N}_{ntype}_set{simtag}_config.txt", flatlat)
+  File "/nas/longleaf/rhel9/apps/python/3.12.2/lib/python3.12/site-packages/numpy/lib/npyio.py", line 1556, in savetxt
+    open(fname, 'wt').close()
+    ^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '../outputs/data/ELV_URL_a0.5_N300_G_seturl_power25_g1_config.txt'
+Traceback (most recent call last):
+  File "/nas/longleaf/home/leonleon/c298/utils/Network_ELV2D.py", line 406, in <module>
+    np.savetxt(f"../outputs/data/ELV_URL_a{a}_N{N}_{ntype}_set{simtag}_config.txt", flatlat)
+  File "/nas/longleaf/rhel9/apps/python/3.12.2/lib/python3.12/site-packages/numpy/lib/npyio.py", line 1556, in savetxt
+    open(fname, 'wt').close()
+    ^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '../outputs/data/ELV_URL_a0.5_N300_C_seturl_uniform_c1_config.txt'
+Traceback (most recent call last):
+  File "/nas/longleaf/home/leonleon/c298/utils/Network_ELV2D.py", line 406, in <module>
+    np.savetxt(f"../outputs/data/ELV_URL_a{a}_N{N}_{ntype}_set{simtag}_config.txt", flatlat)
+  File "/nas/longleaf/rhel9/apps/python/3.12.2/lib/python3.12/site-packages/numpy/lib/npyio.py", line 1556, in savetxt
+    open(fname, 'wt').close()
+    ^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '../outputs/data/ELV_URL_a0.5_N300_C_seturl_power20_c1_config.txt'
+Traceback (most recent call last):
+  File "/nas/longleaf/home/leonleon/c298/utils/Network_ELV2D.py", line 406, in <module>
+    np.savetxt(f"../outputs/data/ELV_URL_a{a}_N{N}_{ntype}_set{simtag}_config.txt", flatlat)
+  File "/nas/longleaf/rhel9/apps/python/3.12.2/lib/python3.12/site-packages/numpy/lib/npyio.py", line 1556, in savetxt
+    open(fname, 'wt').close()
+    ^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '../outputs/data/ELV_URL_a0.5_N300_D_seturl_uniform_d1_config.txt'
+Traceback (most recent call last):
+  File "/nas/longleaf/home/leonleon/c298/utils/Network_ELV2D.py", line 406, in <module>
+    np.savetxt(f"../outputs/data/ELV_URL_a{a}_N{N}_{ntype}_set{simtag}_config.txt", flatlat)
+  File "/nas/longleaf/rhel9/apps/python/3.12.2/lib/python3.12/site-packages/numpy/lib/npyio.py", line 1556, in savetxt
+    open(fname, 'wt').close()
+    ^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '../outputs/data/ELV_URL_a0.5_N300_D_seturl_power20_d1_config.txt'
+Traceback (most recent call last):
+  File "/nas/longleaf/home/leonleon/c298/utils/Network_ELV2D.py", line 406, in <module>
+    np.savetxt(f"../outputs/data/ELV_URL_a{a}_N{N}_{ntype}_set{simtag}_config.txt", flatlat)
+  File "/nas/longleaf/rhel9/apps/python/3.12.2/lib/python3.12/site-packages/numpy/lib/npyio.py", line 1556, in savetxt
+    open(fname, 'wt').close()
+    ^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '../outputs/data/ELV_URL_a0.1_N250_V_seturl01_uniform_v1_config.txt'
+Traceback (most recent call last):
+  File "/nas/longleaf/home/leonleon/c298/utils/Network_ELV2D.py", line 406, in <module>
+    np.savetxt(f"../outputs/data/ELV_URL_a{a}_N{N}_{ntype}_set{simtag}_config.txt", flatlat)
+  File "/nas/longleaf/rhel9/apps/python/3.12.2/lib/python3.12/site-packages/numpy/lib/npyio.py", line 1556, in savetxt
+    open(fname, 'wt').close()
+    ^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '../outputs/data/ELV_URL_a0.1_N250_V_seturl01_power20_v1_config.txt'
+Traceback (most recent call last):
+  File "/nas/longleaf/home/leonleon/c298/utils/Network_ELV2D.py", line 406, in <module>
+    np.savetxt(f"../outputs/data/ELV_URL_a{a}_N{N}_{ntype}_set{simtag}_config.txt", flatlat)
+  File "/nas/longleaf/rhel9/apps/python/3.12.2/lib/python3.12/site-packages/numpy/lib/npyio.py", line 1556, in savetxt
+    open(fname, 'wt').close()
+    ^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '../outputs/data/ELV_URL_a0.1_N250_G_seturl01_uniform_g1_config.txt'
+Traceback (most recent call last):
+  File "/nas/longleaf/home/leonleon/c298/utils/Network_ELV2D.py", line 406, in <module>
+    np.savetxt(f"../outputs/data/ELV_URL_a{a}_N{N}_{ntype}_set{simtag}_config.txt", flatlat)
+  File "/nas/longleaf/rhel9/apps/python/3.12.2/lib/python3.12/site-packages/numpy/lib/npyio.py", line 1556, in savetxt
+    open(fname, 'wt').close()
+    ^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '../outputs/data/ELV_URL_a0.1_N250_G_seturl01_power20_g1_config.txt'
+Traceback (most recent call last):
+  File "/nas/longleaf/home/leonleon/c298/utils/Network_ELV2D.py", line 404, in <module>
+    np.savetxt(f"../outputs/data/ELV_poi_N{N}_{ntype}_set{simtag}_config.txt", flatlat)
+  File "/nas/longleaf/rhel9/apps/python/3.12.2/lib/python3.12/site-packages/numpy/lib/npyio.py", line 1556, in savetxt
+    open(fname, 'wt').close()
+    ^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '../outputs/data/ELV_poi_N200_V_setpoi_uniform_v2_config.txt'
+Traceback (most recent call last):
+  File "/nas/longleaf/home/leonleon/c298/utils/Network_ELV2D.py", line 404, in <module>
+    np.savetxt(f"../outputs/data/ELV_poi_N{N}_{ntype}_set{simtag}_config.txt", flatlat)
+  File "/nas/longleaf/rhel9/apps/python/3.12.2/lib/python3.12/site-packages/numpy/lib/npyio.py", line 1556, in savetxt
+    open(fname, 'wt').close()
+    ^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '../outputs/data/ELV_poi_N200_V_setpoi_power20_v2_config.txt'
+Traceback (most recent call last):
+  File "/nas/longleaf/home/leonleon/c298/utils/Network_ELV2D.py", line 406, in <module>
+    np.savetxt(f"../outputs/data/ELV_URL_a{a}_N{N}_{ntype}_set{simtag}_config.txt", flatlat)
+  File "/nas/longleaf/rhel9/apps/python/3.12.2/lib/python3.12/site-packages/numpy/lib/npyio.py", line 1556, in savetxt
+    open(fname, 'wt').close()
+    ^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '../outputs/data/ELV_URL_a0.5_N300_G_seturl_uniform_g2_config.txt'
+Traceback (most recent call last):
+  File "/nas/longleaf/home/leonleon/c298/utils/Network_ELV2D.py", line 406, in <module>
+    np.savetxt(f"../outputs/data/ELV_URL_a{a}_N{N}_{ntype}_set{simtag}_config.txt", flatlat)
+  File "/nas/longleaf/rhel9/apps/python/3.12.2/lib/python3.12/site-packages/numpy/lib/npyio.py", line 1556, in savetxt
+    open(fname, 'wt').close()
+    ^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '../outputs/data/ELV_URL_a0.5_N300_G_seturl_power20_g2_config.txt'
+Traceback (most recent call last):
+  File "/nas/longleaf/home/leonleon/c298/utils/generate_group_plots.py", line 364, in <module>
+    create_weight_comparison_plots(db_path)
+  File "/nas/longleaf/home/leonleon/c298/utils/generate_group_plots.py", line 146, in create_weight_comparison_plots
+    plt.savefig(filename, dpi=300, bbox_inches='tight')
+  File "/nas/longleaf/rhel9/apps/python/3.12.2/lib/python3.12/site-packages/matplotlib/pyplot.py", line 1251, in savefig
+    res = fig.savefig(*args, **kwargs)  # type: ignore[func-returns-value]
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/nas/longleaf/rhel9/apps/python/3.12.2/lib/python3.12/site-packages/matplotlib/figure.py", line 3490, in savefig
+    self.canvas.print_figure(fname, **kwargs)
+  File "/nas/longleaf/rhel9/apps/python/3.12.2/lib/python3.12/site-packages/matplotlib/backend_bases.py", line 2184, in print_figure
+    result = print_method(
+             ^^^^^^^^^^^^^
+  File "/nas/longleaf/rhel9/apps/python/3.12.2/lib/python3.12/site-packages/matplotlib/backend_bases.py", line 2040, in <lambda>
+    print_method = functools.wraps(meth)(lambda *args, **kwargs: meth(
+                                                                 ^^^^^
+  File "/nas/longleaf/rhel9/apps/python/3.12.2/lib/python3.12/site-packages/matplotlib/backends/backend_agg.py", line 481, in print_png
+    self._print_pil(filename_or_obj, "png", pil_kwargs, metadata)
+  File "/nas/longleaf/rhel9/apps/python/3.12.2/lib/python3.12/site-packages/matplotlib/backends/backend_agg.py", line 430, in _print_pil
+    mpl.image.imsave(
+  File "/nas/longleaf/rhel9/apps/python/3.12.2/lib/python3.12/site-packages/matplotlib/image.py", line 1657, in imsave
+    image.save(fname, **pil_kwargs)
+  File "/nas/longleaf/rhel9/apps/python/3.12.2/lib/python3.12/site-packages/PIL/Image.py", line 2583, in save
+    fp = builtins.open(filename, "w+b")
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '../outputs/plots/hyperuniformity_comparison_URL_D_2025-09-08_154446.png'
+Traceback (most recent call last):
+  File "<string>", line 2, in <module>
+ModuleNotFoundError: No module named 'utils'

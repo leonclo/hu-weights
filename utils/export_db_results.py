@@ -12,15 +12,15 @@ def main():
     """Export database contents to readable formats"""
     
     # Check if database exists
-    db_path = "network_results_weights.db"
+    db_path = "../network_results_weights.db"  # Main database location
     if not os.path.exists(db_path):
         print(f"Database {db_path} not found!")
         print("Looking for alternative database names...")
         
         # Look for other possible database names
         possible_names = [
+            "network_results_weights.db",
             "network_results.db",
-            "../network_results_weights.db", 
             "../network_results.db"
         ]
         

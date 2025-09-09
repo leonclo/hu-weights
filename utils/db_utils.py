@@ -15,9 +15,59 @@ class NetworkResultsDB:
     
     def init_database(self):
         """Initialize database with schema"""
-        schema_path = os.path.join(os.path.dirname(__file__), 'database_schema.sql')
-        with open(schema_path, 'r') as f:
-            schema = f.read()
+        schema = """
+        CREATE TABLE IF NOT EXISTS configurations (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            N INTEGER,
+            a REAL,
+            beamw REAL,
+            simname TEXT,
+            config_type TEXT,
+            tess_type TEXT,
+            dimension INTEGER,
+            binset REAL,
+            weight_type TEXT DEFAULT 'uniform',
+            weight_parameters TEXT,
+            filename TEXT,
+            point_pattern BLOB,
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        );
+
+        CREATE TABLE IF NOT EXISTS edge_length_variance_results (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            config_id INTEGER,
+            window_radii BLOB,
+            variance_matrix BLOB,
+            edge_density REAL,
+            weighted_edge_density REAL,
+            unweighted_edge_density REAL,
+            num_windows INTEGER,
+            resolution INTEGER,
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            FOREIGN KEY (config_id) REFERENCES configurations(id)
+        );
+
+        CREATE TABLE IF NOT EXISTS spectral_density_results (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            config_id INTEGER,
+            wavenumber BLOB,
+            spectral_density BLOB,
+            phi2 REAL,
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            FOREIGN KEY (config_id) REFERENCES configurations(id)
+        );
+
+        CREATE TABLE IF NOT EXISTS computation_metadata (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            config_id INTEGER,
+            computation_type TEXT,
+            computation_time REAL,
+            memory_usage REAL,
+            parameters TEXT,
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            FOREIGN KEY (config_id) REFERENCES configurations(id)
+        );
+        """
         
         with sqlite3.connect(self.db_path) as conn:
             conn.executescript(schema)
@@ -46,11 +96,29 @@ class NetworkResultsDB:
             return cursor.lastrowid
     
     def save_elv_results(self, config_id: int, window_radii: np.ndarray, 
-                        variance_matrix: np.ndarray, edge_density: float,
-                        num_windows: int, resolution: int) -> int:
-        """Save ELV results with edge weight support"""
+                        variance_matrix: np.ndarray, 
+                        weighted_edge_density: float = None, unweighted_edge_density: float = None,
+                        edge_density: float = None,  # Keep for backward compatibility
+                        num_windows: int = None, resolution: int = None) -> int:
+        """Save ELV results with both weighted and unweighted edge densities"""
         with sqlite3.connect(self.db_path) as conn:
             cursor = conn.cursor()
+            
+            # Add new columns if they don't exist (backward compatibility)
+            try:
+                cursor.execute("ALTER TABLE edge_length_variance_results ADD COLUMN weighted_edge_density REAL")
+            except sqlite3.OperationalError:
+                pass  # Column already exists
+                
+            try:
+                cursor.execute("ALTER TABLE edge_length_variance_results ADD COLUMN unweighted_edge_density REAL")
+            except sqlite3.OperationalError:
+                pass  # Column already exists
+            
+            # Handle backward compatibility
+            if edge_density is not None and weighted_edge_density is None:
+                weighted_edge_density = edge_density
+                unweighted_edge_density = edge_density
             
             # Serialize numpy arrays
             radii_blob = pickle.dumps(window_radii)
@@ -58,9 +126,11 @@ class NetworkResultsDB:
             
             cursor.execute("""
                 INSERT INTO edge_length_variance_results 
-                (config_id, window_radii, variance_matrix, edge_density, num_windows, resolution)
-                VALUES (?, ?, ?, ?, ?, ?)
-            """, (config_id, radii_blob, variance_blob, edge_density, num_windows, resolution))
+                (config_id, window_radii, variance_matrix, edge_density, 
+                 weighted_edge_density, unweighted_edge_density, num_windows, resolution)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+            """, (config_id, radii_blob, variance_blob, weighted_edge_density,
+                  weighted_edge_density, unweighted_edge_density, num_windows, resolution))
             
             return cursor.lastrowid
     

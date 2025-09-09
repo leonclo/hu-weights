@@ -1,0 +1,81 @@
+Starting ELV Cluster Analysis: Power Law vs Uniform Weighting
+Start time: Mon Sep  8 03:42:27 PM EDT 2025
+======================================================
+Phase 1: Poisson Point Patterns (N=200)
+[1/30] Starting: poi N=200 V uniform (Mon Sep  8 03:42:27 PM EDT 2025)
+[1/30] ✗ FAILED: poi N=200 V uniform (Mon Sep  8 03:42:32 PM EDT 2025)
+[2/30] Starting: poi N=200 V length_power_law (Mon Sep  8 03:42:32 PM EDT 2025)
+[2/30] ✗ FAILED: poi N=200 V length_power_law (Mon Sep  8 03:42:34 PM EDT 2025)
+[3/30] Starting: poi N=200 V length_power_law (Mon Sep  8 03:42:34 PM EDT 2025)
+[3/30] ✗ FAILED: poi N=200 V length_power_law (Mon Sep  8 03:42:36 PM EDT 2025)
+[4/30] Starting: poi N=200 V length_power_law (Mon Sep  8 03:42:36 PM EDT 2025)
+[4/30] ✗ FAILED: poi N=200 V length_power_law (Mon Sep  8 03:42:38 PM EDT 2025)
+[5/30] Starting: poi N=200 G uniform (Mon Sep  8 03:42:38 PM EDT 2025)
+[5/30] ✗ FAILED: poi N=200 G uniform (Mon Sep  8 03:42:41 PM EDT 2025)
+[6/30] Starting: poi N=200 G length_power_law (Mon Sep  8 03:42:41 PM EDT 2025)
+[6/30] ✗ FAILED: poi N=200 G length_power_law (Mon Sep  8 03:42:43 PM EDT 2025)
+[7/30] Starting: poi N=200 G length_power_law (Mon Sep  8 03:42:43 PM EDT 2025)
+[7/30] ✗ FAILED: poi N=200 G length_power_law (Mon Sep  8 03:42:45 PM EDT 2025)
+[8/30] Starting: poi N=200 G length_power_law (Mon Sep  8 03:42:45 PM EDT 2025)
+[8/30] ✗ FAILED: poi N=200 G length_power_law (Mon Sep  8 03:42:47 PM EDT 2025)
+[9/30] Starting: poi N=200 C uniform (Mon Sep  8 03:42:47 PM EDT 2025)
+[9/30] ✗ FAILED: poi N=200 C uniform (Mon Sep  8 03:42:49 PM EDT 2025)
+[10/30] Starting: poi N=200 C length_power_law (Mon Sep  8 03:42:49 PM EDT 2025)
+[10/30] ✗ FAILED: poi N=200 C length_power_law (Mon Sep  8 03:42:51 PM EDT 2025)
+Phase 2: URL Point Patterns (N=300, a=0.5)
+[11/30] Starting: URL N=300 V uniform (Mon Sep  8 03:42:51 PM EDT 2025)
+[11/30] ✗ FAILED: URL N=300 V uniform (Mon Sep  8 03:42:58 PM EDT 2025)
+[12/30] Starting: URL N=300 V length_power_law (Mon Sep  8 03:42:58 PM EDT 2025)
+[12/30] ✗ FAILED: URL N=300 V length_power_law (Mon Sep  8 03:43:04 PM EDT 2025)
+[13/30] Starting: URL N=300 V length_power_law (Mon Sep  8 03:43:04 PM EDT 2025)
+[13/30] ✗ FAILED: URL N=300 V length_power_law (Mon Sep  8 03:43:10 PM EDT 2025)
+[14/30] Starting: URL N=300 V length_power_law (Mon Sep  8 03:43:10 PM EDT 2025)
+[14/30] ✗ FAILED: URL N=300 V length_power_law (Mon Sep  8 03:43:16 PM EDT 2025)
+[15/30] Starting: URL N=300 G uniform (Mon Sep  8 03:43:16 PM EDT 2025)
+[15/30] ✗ FAILED: URL N=300 G uniform (Mon Sep  8 03:43:22 PM EDT 2025)
+[16/30] Starting: URL N=300 G length_power_law (Mon Sep  8 03:43:22 PM EDT 2025)
+[16/30] ✗ FAILED: URL N=300 G length_power_law (Mon Sep  8 03:43:28 PM EDT 2025)
+[17/30] Starting: URL N=300 G length_power_law (Mon Sep  8 03:43:28 PM EDT 2025)
+[17/30] ✗ FAILED: URL N=300 G length_power_law (Mon Sep  8 03:43:34 PM EDT 2025)
+[18/30] Starting: URL N=300 G length_power_law (Mon Sep  8 03:43:34 PM EDT 2025)
+[18/30] ✗ FAILED: URL N=300 G length_power_law (Mon Sep  8 03:43:40 PM EDT 2025)
+[19/30] Starting: URL N=300 C uniform (Mon Sep  8 03:43:40 PM EDT 2025)
+[19/30] ✗ FAILED: URL N=300 C uniform (Mon Sep  8 03:43:46 PM EDT 2025)
+[20/30] Starting: URL N=300 C length_power_law (Mon Sep  8 03:43:46 PM EDT 2025)
+[20/30] ✗ FAILED: URL N=300 C length_power_law (Mon Sep  8 03:43:52 PM EDT 2025)
+[21/30] Starting: URL N=300 D uniform (Mon Sep  8 03:43:52 PM EDT 2025)
+[21/30] ✗ FAILED: URL N=300 D uniform (Mon Sep  8 03:43:58 PM EDT 2025)
+[22/30] Starting: URL N=300 D length_power_law (Mon Sep  8 03:43:58 PM EDT 2025)
+[22/30] ✗ FAILED: URL N=300 D length_power_law (Mon Sep  8 03:44:04 PM EDT 2025)
+Phase 3: Moderate URL Point Patterns (N=250, a=0.1)
+[23/30] Starting: URL N=250 V uniform (Mon Sep  8 03:44:04 PM EDT 2025)
+[23/30] ✗ FAILED: URL N=250 V uniform (Mon Sep  8 03:44:10 PM EDT 2025)
+[24/30] Starting: URL N=250 V length_power_law (Mon Sep  8 03:44:10 PM EDT 2025)
+[24/30] ✗ FAILED: URL N=250 V length_power_law (Mon Sep  8 03:44:16 PM EDT 2025)
+[25/30] Starting: URL N=250 G uniform (Mon Sep  8 03:44:16 PM EDT 2025)
+[25/30] ✗ FAILED: URL N=250 G uniform (Mon Sep  8 03:44:22 PM EDT 2025)
+[26/30] Starting: URL N=250 G length_power_law (Mon Sep  8 03:44:22 PM EDT 2025)
+[26/30] ✗ FAILED: URL N=250 G length_power_law (Mon Sep  8 03:44:28 PM EDT 2025)
+Phase 4: Additional Realizations
+[27/30] Starting: poi N=200 V uniform (Mon Sep  8 03:44:28 PM EDT 2025)
+[27/30] ✗ FAILED: poi N=200 V uniform (Mon Sep  8 03:44:30 PM EDT 2025)
+[28/30] Starting: poi N=200 V length_power_law (Mon Sep  8 03:44:30 PM EDT 2025)
+[28/30] ✗ FAILED: poi N=200 V length_power_law (Mon Sep  8 03:44:32 PM EDT 2025)
+[29/30] Starting: URL N=300 G uniform (Mon Sep  8 03:44:32 PM EDT 2025)
+[29/30] ✗ FAILED: URL N=300 G uniform (Mon Sep  8 03:44:38 PM EDT 2025)
+[30/30] Starting: URL N=300 G length_power_law (Mon Sep  8 03:44:38 PM EDT 2025)
+[30/30] ✗ FAILED: URL N=300 G length_power_law (Mon Sep  8 03:44:44 PM EDT 2025)
+======================================================
+Post-Processing: Generating Group Analysis Plots
+Start time: Mon Sep  8 03:44:44 PM EDT 2025
+✗ Group plots generation FAILED (Mon Sep  8 03:44:46 PM EDT 2025)
+======================================================
+Cluster Analysis Complete: Mon Sep  8 03:44:48 PM EDT 2025
+Total configurations analyzed: 30
+Focus: Power Law (α=1.5,2.0,2.5) vs Uniform weighting
+Tessellations: Voronoi, Gabriel, Circumcenter, Delaunay
+Point patterns: Poisson (N=200), URL a=0.1 (N=250), URL a=0.5 (N=300)
+Results: plots/ directory, database summary in final_database_summary.txt
+======================================================
+DATABASE SUMMARY:
+All analysis complete! Check cluster_progress.log for detailed status.

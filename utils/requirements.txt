@@ -26,3 +26,6 @@ joblib>=1.1.0
 
 # Optional: For progress bars
 tqdm>=4.62.0
+
+# Machine learning (for clustering analysis)
+scikit-learn>=1.0.0
